@@ -34,4 +34,7 @@ jobs:
           folder: dist
           clean: true
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: 'Deploy site to GitHub Pages via Actions'
+          commit-message: 'Deploy site to GitHub Pages via Actions'
+          git-config-name: 'github-actions[bot]'
+          git-config-email: 'github-actions[bot]@users.noreply.github.com'
+          single-commit: true
