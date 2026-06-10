@@ -32,6 +32,8 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -e
           rm -rf deploy
@@ -44,6 +46,6 @@ jobs:
           git checkout -b gh-pages
           git add .
           git commit -m "Deploy site to GitHub Pages from ${{ github.sha }}"
-          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
-          git push --force origin gh-pages
+          gh repo clone ${{ github.repository }} ../repo-ref --branch gh-pages 2>/dev/null || true
+          git push --force "https://oauth2:$GH_TOKEN@github.com/${{ github.repository }}.git" gh-pages
         shell: bash
