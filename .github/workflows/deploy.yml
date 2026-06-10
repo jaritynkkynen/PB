@@ -28,13 +28,17 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages
-          folder: dist
-          clean: true
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'Deploy site to GitHub Pages via Actions'
-          git-config-name: 'github-actions[bot]'
-          git-config-email: 'github-actions[bot]@users.noreply.github.com'
-          single-commit: true
+        run: |
+          set -e
+          rm -rf deploy
+          mkdir deploy
+          cp -R dist/* deploy/
+          cd deploy
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Deploy site to GitHub Pages from ${{ github.sha }}"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
+        shell: bash
