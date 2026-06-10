@@ -32,7 +32,7 @@ jobs:
           set -e
           rm -rf deploy
           mkdir deploy
-          cp -R dist/* deploy/
+          cp -R dist/. deploy/
           cd deploy
           git init
           git config user.name "github-actions[bot]"
@@ -40,5 +40,6 @@ jobs:
           git checkout -b gh-pages
           git add .
           git commit -m "Deploy site to GitHub Pages from ${{ github.sha }}"
-          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
+          git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git push --force origin gh-pages
         shell: bash
