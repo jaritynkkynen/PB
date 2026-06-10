@@ -1,0 +1,3 @@
+- Tämä projekti on React + Vite -pohjainen henkilöbrändisivusto.
+- Tarkoitus on esitellä henkilöbrändiä, osaamista ja tarjota CV-lataus.
+- Käyttäjän tulee asentaa riippuvuudet `npm install` ennen kehityspalvelimen käynnistystä.
