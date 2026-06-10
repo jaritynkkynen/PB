@@ -9,16 +9,16 @@ on:
 permissions:
   contents: write
   pages: write
+  id-token: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
 
       - name: Use Node.js
         uses: actions/setup-node@v5
@@ -31,21 +31,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
       - name: Deploy to GitHub Pages
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-          rm -rf deploy
-          mkdir deploy
-          cp -R dist/. deploy/
-          cd deploy
-          git init
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b gh-pages
-          git add .
-          git commit -m "Deploy site to GitHub Pages from ${{ github.sha }}"
-          gh repo clone ${{ github.repository }} ../repo-ref --branch gh-pages 2>/dev/null || true
-          git push --force "https://oauth2:$GH_TOKEN@github.com/${{ github.repository }}.git" gh-pages
-        shell: bash
+        id: deployment
+        uses: actions/deploy-pages@v4
