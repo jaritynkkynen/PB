@@ -15,10 +15,8 @@ const profile = {
     'Testaus ja laadunvarmistus',
     'Projektinhallinta ja tiimityöskentely',
     'Ketterä kehitys ja projektinhallinta',
-    'React ja modernit web-teknologiat',
-    'UI/UX-suunnittelu ja käyttäjäkokemus',
     'AI-agenttien ja automaation prototypointi',
-    'Sisällön ja brändin viestintä'
+    'Ohjelmistokehitys'
   ],
   details: [
     { label: 'Sijainti', value: 'Muurame, Suomi' },
