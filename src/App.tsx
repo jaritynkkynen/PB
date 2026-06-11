@@ -21,7 +21,7 @@ const profile = {
   details: [
     { label: 'Sijainti', value: 'Muurame, Suomi' },
     { label: 'Erikoisala', value: 'Automaatioa testaus ympäristöt, testaus, ohjelmistökehitys ja AI-integraatiot' },
-    { label: 'Kokemus', value: '28 vuotta kokemusta testiautomaatio järjestelmien kehityksestä ja ohjelmistokehityksesta' }
+    { label: 'Kokemus', value: '28 vuotta kokemusta testiautomaatiojärjestelmien kehityksestä ja ohjelmistokehityksesta' }
   ]
 }
 
