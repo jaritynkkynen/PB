@@ -9,8 +9,8 @@ const profile = {
   intro:
     'Tervetuloa henkilöbrändisivulleni. Tässä esittelen osaamistani, kokemukseni ja sen, miten voin auttaa projekteissasi.',
   skills: [
-    'Testi automaation arkkitehtuurit ja työkalut',
-    'Testi automaation suunnittelu ja toteutus',
+    'Testiautomaation arkkitehtuurit ja työkalut',
+    'Testiautomaation suunnittelu ja toteutus',
     'Automatisointi ja AI-agentit',
     'Testaus ja laadunvarmistus',
     'Projektinhallinta ja tiimityöskentely',
