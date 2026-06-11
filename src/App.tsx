@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import profileImage from './content/JariPicture.jpg'
-import cvFile from './content/JTY_CV_ENG.pdf'
+import cvFile from './content/cv.pdf'
 import HobbiesPage from './pages/Hobbies'
 
 const profile = {
