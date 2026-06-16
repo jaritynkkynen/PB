@@ -30,7 +30,8 @@ const profile = {
     hobbies: 'Harrastukset',
     about: 'Minusta',
     skillsTitle: 'Osaaminen',
-    contact: 'Yhteystiedot'
+    contact: 'Yhteystiedot',
+    eyebrow: 'Henkilöbrändi'
   },
 
   en: {
@@ -59,7 +60,8 @@ const profile = {
     hobbies: 'Hobbies',
     about: 'About me',
     skillsTitle: 'Skills',
-    contact: 'Contact'
+    contact: 'Contact',
+    eyebrow: 'Personal Brand'
   }
 }
 
@@ -136,7 +138,7 @@ function App() {
           <div className="hero-top">
             <img className="profile-image" src={profileImage} alt={`${profile[language].name} picture`} />
             <div>
-              <span className="eyebrow">Henkilöbrändi</span>
+              <span className="eyebrow">{profile[language].eyebrow}</span>
               <h1>{profile[language].name}</h1>
               <p>{profile[language].headline}</p>
               <div className="button-row">
