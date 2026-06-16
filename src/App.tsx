@@ -203,10 +203,20 @@ function App() {
       {page === 'home' && (
         <footer className="footer card">
           <h2>{profile[language].contact}</h2>
-          <p>Email: jari.tynkkynen@elisanet.fi</p>
-          <p>LinkedIn: linkedin.com/in/jari-tynkkynen</p>
-          <p>Phone: +358 456535235</p>
+
+          <p>
+            Email: <a href="mailto:jari.tynkkynen@elisanet.fi">jari.tynkkynen@elisanet.fi</a>
+          </p>
+
+          <p>
+            LinkedIn: <a href="https://www.linkedin.com/in/jari-tynkkynen" target="_blank" rel="noreferrer">linkedin.com/in/jari-tynkkynen</a>
+          </p>
+
+          <p>
+            Phone: <a href="tel:+358456535235">+358 456535235</a>
+          </p>
         </footer>
+
       )}
     </div>
   )
