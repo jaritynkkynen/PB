@@ -249,3 +249,41 @@ html,
     padding: 28px 22px;
   }
 }
+
+.language-switcher {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+}
+
+.language-switcher button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.language-switcher button img {
+  width: 20px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.language-switcher button:hover {
+  background: #334155;
+}
+
+.language-switcher button.active {
+  background: #475569;
+  border-color: #64748b;
+}
