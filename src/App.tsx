@@ -17,7 +17,7 @@ const profile = {
       'Projektinhallinta ja tiimityöskentely',
       'Ketterä kehitys ja projektinhallinta',
       'AI-agenttien ja automaation prototypointi',
-      'Ohjelmistokehitys'
+      'Ohjelmistokehitys', 'RF-testaus järjestelmien suunnittelu ja toteutus', 'Simulaatiot ja virtuaaliset testausympäristöt'
     ],
     details: [
       { label: 'Sijainti', value: 'Muurame, Suomi' },
@@ -47,7 +47,7 @@ const profile = {
       'Project management and teamwork',
       'Agile development and project coordination',
       'AI agent prototyping and automation',
-      'Software development'
+      'Software development', 'RF testing system design and implementation', 'Simulations and virtual test environments'
     ],
     details: [
       { label: 'Location', value: 'Muurame, Finland' },
