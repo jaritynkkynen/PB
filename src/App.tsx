@@ -79,7 +79,7 @@ const aiQuestions = {
     },
     {
       question: 'Miten voin ottaa sinuun yhteyttä?',
-      answer: 'Yhteystiedot löytyvät sivun alareunasta. Voit myös ladata CV:ni.'
+      answer: 'Yhteystiedot löytyvät sivun alareunasta. Voit myös ladata CV:ni sivun ylälaidasta.'
     }
   ],
 
