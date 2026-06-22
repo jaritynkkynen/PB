@@ -26,9 +26,11 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Update docs folder
+      - name: Prepare docs folder
         run: |
-          rm -rf docs/*
+          rm -rf docs
+          mkdir -p docs
+          touch docs/.nojekyll
           cp -r dist/* docs/
 
       - name: Commit and push docs
