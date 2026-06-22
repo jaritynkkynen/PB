@@ -3,22 +3,20 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'docs/**'
 
 permissions:
-  contents: write
+  pages: write
+  id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
 
-      - name: Use Node.js
-        uses: actions/setup-node@v5
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -26,17 +24,18 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare docs folder
-        run: |
-          rm -rf docs
-          mkdir -p docs
-          touch docs/.nojekyll
-          cp -r dist/* docs/
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
-      - name: Commit and push docs
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -f docs/
-          git diff --staged --quiet || git commit -m "Deploy: ${{ github.sha }}"
-          git push
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
